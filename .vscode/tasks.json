@@ -1,0 +1,52 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: gcc.exe 활성 파일 빌드",
+            "command": "C:\\msys64\\mingw64\\bin\\gcc.exe",
+            "args": [
+                "-Wall",
+                "-g",
+                "-pthread",
+                "-mms-bitfields",
+                "-IC:\\msys64\\mingw64\\include",
+                "-IC:\\msys64\\mingw64\\include\\gtk-4.0",
+                "-IC:\\msys64\\mingw64\\include\\glib-2.0",
+                "-IC:\\msys64\\mingw64\\lib\\glib-2.0\\include",
+                "-IC:\\msys64\\mingw64\\include\\pango-1.0",
+                "-IC:\\msys64\\mingw64\\include\\harfbuzz",
+                "-IC:\\msys64\\mingw64\\include\\cairo",
+                "-IC:\\msys64\\mingw64\\include\\gdk-pixbuf-2.0",
+                "-IC:\\msys64\\mingw64\\include\\atk-1.0",
+                "-IC:\\msys64\\mingw64\\include\\graphene-1.0",
+                "-IC:\\msys64\\mingw64\\lib\\graphene-1.0\\include",
+
+                "${file}",
+                "-lgtk-4",      // -lgtk-3.0로 쓰면 cannot find -lgtk-3.0 오류 출력
+                "-lglib-2.0",
+                "-lpango-1.0",
+                "-lharfbuzz",
+                "-lcairo",
+                "-lgdk_pixbuf-2.0",     // 폴더명은 gdk-pixbuf-2.0이지만, gdk_pixbuf-2.0로 표기해야함
+                "-latk-1.0",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                // "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                // "`pkg-config --cflags --libs gtk-4`"
+            ],
+            "options": {
+                // "cwd": "${fileDirname}"
+                "cwd": "C:\\msys64\\mingw64\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "디버거에서 생성된 작업입니다."
+        }
+    ],
+    "version": "2.0.0"
+}
